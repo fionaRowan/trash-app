@@ -12,8 +12,6 @@ if (process.env.STITCH_URL) {
 }
 
 let stitchClient = new StitchClient(APP_ID, options);
-let db = stitchClient.service("mongodb", "mongodb-atlas").db("locations");
-let users = db.collection("users");
 
 class App extends Component {
   state = {tab: 'map'}
