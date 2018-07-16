@@ -38,7 +38,7 @@ class App extends Component {
         }
         {
           this.state.tab === 'guide' &&
-          <ProductMatrix/>
+          <ProductMatrix client={stitchClient}/>
         }
       </div>
     );
