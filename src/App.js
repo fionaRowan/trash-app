@@ -1,11 +1,10 @@
-import ReactDOM from 'react-dom';
 import React, { Component } from 'react';
 import './App.css';
 import { StitchClient } from "mongodb-stitch";
 import AuthControls from "./AuthControls";
 import SimpleMap from "./SimpleMap";
 
-let appId = "<YOUR-APP-ID-HERE>";
+let appId = "trash-app-jlhns";
 if (process.env.APP_ID) {
   appId = process.env.APP_ID;
 }
@@ -16,8 +15,6 @@ if (process.env.STITCH_URL) {
 }
 
 let stitchClient = new StitchClient(appId, options);
-let db = stitchClient.service("mongodb", "mongodb-atlas").db("locations");
-let users = db.collection("users");
 
 class App extends Component {
   render() {

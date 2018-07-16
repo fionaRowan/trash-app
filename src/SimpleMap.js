@@ -16,6 +16,17 @@ class SimpleMap extends Component {
     }
   }
 
+  getRecyclingMarkers() {
+    const db = this.props.client.service('mongodb', 'mongodb-atlas').db('recycling');
+    const pinsCollection = db.collection('pins');
+    pinsCollection.find().execute().then(docs => console.log(docs))
+    return (
+      <React.Fragment>
+        
+      </React.Fragment>
+    );
+  }
+
   render() {
     let authed = !!this.props.client.authedId()
     if (!authed) {
@@ -28,6 +39,7 @@ class SimpleMap extends Component {
           attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
+        {this.getRecyclingMarkers()}
         <Marker position={position}>
           <Popup>
             <span>
