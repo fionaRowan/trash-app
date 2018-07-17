@@ -14,10 +14,22 @@ class Pin extends Component {
   }
 
   render() {
+    let popupText = '';
+    switch(this.props.type) {
+      case ITEM_TYPES.COMPOST:
+        popupText = 'compost here!!';
+        break;
+      case ITEM_TYPES.RECYCLING:
+        popupText = 'recycle here!!';
+        break;
+      case ITEM_TYPES.ELECTRONICS:
+        popupText = 'electronics here!!';
+        break;
+    }
     return(
       <Marker position={this.props.position}>
         <Popup>
-          <span>hello i am a popup</span>
+          <span>{popupText}</span>
         </Popup>
       </Marker>
     );

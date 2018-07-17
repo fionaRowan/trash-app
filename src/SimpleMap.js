@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Map, TileLayer } from 'react-leaflet';
 import Leaflet from 'leaflet';
 import Pin from './Pin';
+import FilterControl from './FilterControl';
 
 Leaflet.Icon.Default.imagePath =
   '//cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/images/';
@@ -46,15 +47,18 @@ class SimpleMap extends Component {
     }
     const position = [this.state.lat, this.state.lng]
     return (
-      <Map center={position} zoom={this.state.zoom}>
-        <TileLayer
-          attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        <React.Fragment>
-          {this.state.pins}
-        </React.Fragment>
-      </Map>
+      <React.Fragment>
+        <Map center={position} zoom={this.state.zoom}>
+          <FilterControl/>
+          <TileLayer
+            attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <React.Fragment>
+            {this.state.pins}
+          </React.Fragment>
+        </Map>
+      </React.Fragment>
     )
   }
 }
