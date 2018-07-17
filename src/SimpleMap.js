@@ -12,19 +12,36 @@ class SimpleMap extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      lat: 40.7128,
-      lng: -74.0060,
       zoom: 13,
       pins: [],
+      lat: 40.7128,
+      lng: -74.0060,
+      filters: {
+        recycling: false, 
+        compost: false,
+        electronics: false,
+      },
     }
 
+    this.getRecyclingMarkers();
+
+  }
+
+  onFilterOptionClick (item_type) {
+    const oldFilters = this.state.filters;
+    oldFilters[item_type] = !oldFilters[item_type];
+    this.setState({filters: oldFilters});
     this.getRecyclingMarkers();
   }
 
   getRecyclingMarkers() {
     const db = this.props.client.service('mongodb', 'mongodb-atlas').db('recycling');
     const pinsCollection = db.collection('pins');
-    pinsCollection.find().execute().then(
+    const filters = [];
+    if(this.state.filters.recycling) {filters.push('recycling');}
+    if(this.state.filters.compost) {filters.push('compost');}
+    if(this.state.filters.electronics) {filters.push('electronics');}
+    pinsCollection.find({'item_type': {'$in': filters}}).execute().then(
       docs => {
         const pins = [];
         docs.forEach(
@@ -47,9 +64,9 @@ class SimpleMap extends Component {
     }
     const position = [this.state.lat, this.state.lng]
     return (
-      <React.Fragment>
+      <div>
+      <FilterControl onFilterOptionClick={(...args) => this.onFilterOptionClick(...args)}/>
         <Map center={position} zoom={this.state.zoom}>
-          <FilterControl/>
           <TileLayer
             attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -58,7 +75,7 @@ class SimpleMap extends Component {
             {this.state.pins}
           </React.Fragment>
         </Map>
-      </React.Fragment>
+        </div>
     )
   }
 }

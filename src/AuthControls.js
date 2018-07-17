@@ -11,7 +11,6 @@ class AuthControls extends Component {
     if (authed) {
       this.props.client.userProfile().then(userData=>{
         this.setState({userData:userData.data});
-        console.log(userData);
       })
     }
   }

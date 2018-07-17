@@ -48,3 +48,8 @@
   height: 50px;
   width: 50px;
 }
+
+.legend {
+  background-color: #ffff;
+  padding: 10px;
+}
