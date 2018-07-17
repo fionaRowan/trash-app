@@ -27,3 +27,15 @@
   height: 500px;
   width: 100%;
 }
+
+.Product {
+  height: 200px;
+  width: 400px;
+  margin: 30px;
+  display: inline-flex;
+}
+
+.Product-row {
+  display: flex;
+  justify-content: space-between;
+}
