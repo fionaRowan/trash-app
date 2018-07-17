@@ -39,3 +39,12 @@
   display: flex;
   justify-content: space-between;
 }
+
+.username {
+  color: white;
+}
+
+.profile-pic {
+  height: 50px;
+  width: 50px;
+}

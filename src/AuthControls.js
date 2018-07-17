@@ -9,9 +9,9 @@ class AuthControls extends Component {
   componentDidMount() {
     let authed = !!this.props.client.authedId();
     if (authed) {
-      this.props.client.userProfile()
-      .then(userData=>{
-        this.setState({userData:userData.data})
+      this.props.client.userProfile().then(userData=>{
+        this.setState({userData:userData.data});
+        console.log(userData);
       })
     }
   }
