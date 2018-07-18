@@ -18,9 +18,9 @@ class FilterOption extends Component {
    render() {
    	return (
    		<div>
-   		<input onChange={() => this.onChange()} type="checkbox" name={this.props.name}
-   		value={this.props.name} checked={this.state.checked} />
-   		<label>{this.props.name}</label>
+     		<input onChange={() => this.onChange()} type="checkbox" name={this.props.name}
+     		value={this.props.name} checked={this.state.checked} />
+     		<label>{this.props.name}</label>
    		</div>
    		)
    	}

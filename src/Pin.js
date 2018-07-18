@@ -53,17 +53,21 @@ class Pin extends Component {
     return icon;
   }
 
+  getLocationLink() {
+    return "http://maps.google.com/maps?q=" + this.props.position[0] + "," + this.props.position[1];
+  }
+
   render() {
     let popupText = '';
     switch(this.props.type) {
       case ITEM_TYPES.COMPOST:
-        popupText = 'compost here!!';
+        popupText = 'Food scraps drop off point.';
         break;
       case ITEM_TYPES.RECYCLING:
-        popupText = 'recycle here!!';
+        popupText = 'Public Recycling.';
         break;
       case ITEM_TYPES.ELECTRONICS:
-        popupText = 'electronics here!!';
+        popupText = 'Electronics drop off point.';
         break;
       default:
         popupText = '';
@@ -86,7 +90,16 @@ class Pin extends Component {
     return(
       <Marker {...props}>
         <Popup>
-          <span>{popupText}</span>
+          <div>
+          <div>
+            <span>{popupText}</span>
+            <label>{' '}Enter a number to receive this location.{' '}</label>
+            <input id="number" type="text" name="text"/>
+          </div>
+          <div>
+            <input type="submit" value="Send" onClick={() => this.props.textClient(document.getElementById('number').value, this.getLocationLink())}/>
+          </div>
+          </div>
         </Popup>
       </Marker>
     );
