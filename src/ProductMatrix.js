@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Card, ImageHeader, CardBody, CardFooter } from 'react-simple-card';
-import Product from './Product';
 import ProductRow from './ProductRow';
 import ProductFood from './ProductFood';
 import ProductPlastic from './ProductPlastic';
@@ -16,10 +14,6 @@ import ProductToothpaste from './ProductToothpaste';
 import ProductOther from './ProductOther';
 
 class ProductMatrix extends Component {
-  constructor(props){
-    super(props)
-  }
-  
   render() {
     let authed = !!this.props.client.authedId()
     if (!authed) {

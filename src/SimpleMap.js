@@ -23,7 +23,9 @@ class SimpleMap extends Component {
       },
     }
 
-    this.getRecyclingMarkers();
+    if(!!this.props.client.authedId()) {
+      this.getRecyclingMarkers();
+    }
 
   }
 
@@ -36,6 +38,7 @@ class SimpleMap extends Component {
 
   getRecyclingMarkers() {
     const db = this.props.client.service('mongodb', 'mongodb-atlas').db('recycling');
+    // this.props.client.executeFunction("sendLocation").then(response => console.log(response));
     const pinsCollection = db.collection('pins');
     const filters = [];
     if(this.state.filters.recycling) {filters.push('recycling');}

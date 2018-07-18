@@ -8,11 +8,6 @@ const ITEM_TYPES = {
 }
 
 class Pin extends Component {
-
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     let popupText = '';
     switch(this.props.type) {
@@ -25,6 +20,8 @@ class Pin extends Component {
       case ITEM_TYPES.ELECTRONICS:
         popupText = 'electronics here!!';
         break;
+      default:
+        popupText = '';
     }
     return(
       <Marker position={this.props.position}>

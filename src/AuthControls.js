@@ -23,7 +23,7 @@ class AuthControls extends Component {
         {authed
           ? <div className="login-header">
               {this.state.userData && this.state.userData.picture
-                ? <img src={this.state.userData.picture} className="profile-pic" />
+                ? <img alt="profile" src={this.state.userData.picture} className="profile-pic" />
                 : null}
               <span className="login-text">
                 <span className="username">

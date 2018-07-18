@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, ImageHeader, CardBody, CardFooter } from "react-simple-card";
+import { Card, ImageHeader, CardFooter } from "react-simple-card";
 const PropTypes = require('prop-types');
 
 class Product extends Component {

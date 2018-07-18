@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import L from 'leaflet';
-import { MapControl } from 'react-leaflet';
 import FilterOption from './FilterOption';
 const PropTypes = require('prop-types');
 
