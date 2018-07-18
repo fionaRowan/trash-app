@@ -96,7 +96,7 @@ class SimpleMap extends Component {
             {this.state.pins}
           </React.Fragment>
         </Map>
-        </div>
+      </div>
     )
   }
 }
