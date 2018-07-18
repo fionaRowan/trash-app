@@ -9,12 +9,11 @@ export default class FilterControl extends Component {
   }
 
   render() {
-    console.log(this.props.filters)
     return (
       <div className="legend">
-        <FilterOption onClick={this.props.onFilterOptionClick} name="recycling" />
-        <FilterOption onClick={this.props.onFilterOptionClick} name="compost" />
-        <FilterOption onClick={this.props.onFilterOptionClick} name="electronics" />
+        <FilterOption onClick={this.props.onFilterOptionClick} checked={this.props.filters.recycling} name="recycling" />
+        <FilterOption onClick={this.props.onFilterOptionClick} checked={this.props.filters.compost} name="compost" />
+        <FilterOption onClick={this.props.onFilterOptionClick} checked={this.props.filters.electronics} name="electronics" />
       </div>
     )
   }

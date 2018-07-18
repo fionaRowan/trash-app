@@ -17,7 +17,7 @@ class SimpleMap extends Component {
       lat: 40.7128,
       lng: -74.0060,
       filters: {
-        recycling: (this.props.filters !== undefined && this.props.filters.indexOf("recycling") > -1) ? true : false,
+        recycling: false,
         compost: false,
         electronics: false,
       },
@@ -28,16 +28,6 @@ class SimpleMap extends Component {
     }
 
   }
-
-  // componentWillReceiveProps() {
-  //   const clearFilters = {
-  //       recycling: false,
-  //       compost: false,
-  //       electronics: false,
-  //     };
-  //   this.setState({filters:clearFilters});
-  //   this.getRecyclingMarkers();
-  // }
 
   onFilterOptionClick (item_type) {
     const oldFilters = this.state.filters;
@@ -55,6 +45,11 @@ class SimpleMap extends Component {
     let filters = [];
     if (!!this.props.filters) {
       filters = this.props.filters;
+      const newFilters = this.state.filters;
+      newFilters.recycling = filters.indexOf("recycling") > -1 ? true : false;
+      newFilters.compost = filters.indexOf("compost") > -1 ? true : false;
+      newFilters.electronics = filters.indexOf("electronics") > -1 ? true : false;
+      this.setState({filters: newFilters});
     } else {
       if(this.state.filters.recycling) {filters.push('recycling');}
       if(this.state.filters.compost) {filters.push('compost');}
