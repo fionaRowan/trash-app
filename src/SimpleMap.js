@@ -68,7 +68,7 @@ class SimpleMap extends Component {
     const position = [this.state.lat, this.state.lng]
     return (
       <div>
-      <FilterControl onFilterOptionClick={(...args) => this.onFilterOptionClick(...args)}/>
+        <FilterControl onFilterOptionClick={(...args) => this.onFilterOptionClick(...args)}/>
         <Map center={position} zoom={this.state.zoom}>
           <TileLayer
             attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
@@ -78,7 +78,7 @@ class SimpleMap extends Component {
             {this.state.pins}
           </React.Fragment>
         </Map>
-        </div>
+      </div>
     )
   }
 }
