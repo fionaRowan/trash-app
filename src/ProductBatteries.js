@@ -6,7 +6,7 @@ class ProductBatteries extends Component {
     return (
         <Product
             name='Batteries'
-            imageSrc='http://via.placeholder.com/600x250?text=Placeholder'
+            imageSrc='https://iconstore.co/wp-content/uploads/2015/09/office-featured.png'
           />
     )
   }

@@ -6,7 +6,7 @@ class ProductFood extends Component {
     return (
         <Product
            name='Food'
-           imageSrc='http://via.placeholder.com/600x250?text=Placeholder'
+           imageSrc='https://iconstore.co/wp-content/uploads/2017/03/pizza-icons-featured.png'
          />
     )
   }

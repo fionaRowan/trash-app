@@ -6,7 +6,7 @@ class ProductMetal extends Component {
     return (
         <Product
             name='Metal'
-            imageSrc='http://via.placeholder.com/600x250?text=Placeholder'
+            imageSrc='https://iconstore.co/wp-content/uploads/2018/03/education-featured.png'
           />
     )
   }

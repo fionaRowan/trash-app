@@ -6,7 +6,7 @@ class ProductToothpaste extends Component {
     return (
         <Product
             name='Toothpaste'
-            imageSrc='http://via.placeholder.com/600x250?text=Placeholder'
+            imageSrc='https://iconstore.co/wp-content/uploads/2016/09/medical-icons-featured.png'
           />
     )
   }

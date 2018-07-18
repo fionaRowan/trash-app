@@ -6,7 +6,7 @@ class ProductFabric extends Component {
     return (
         <Product
             name='Fabric'
-            imageSrc='http://via.placeholder.com/600x250?text=Placeholder'
+            imageSrc='https://iconstore.co/wp-content/uploads/2016/04/casual-wear-featured.png'
           />
     )
   }

@@ -5,7 +5,7 @@ const PropTypes = require('prop-types');
 export default class FilterControl extends Component { 
   static propTypes = {
       onFilterOptionClick: PropTypes.func.isRequired,
-      filters: PropTypes.object,
+      filters: PropTypes.object.isRequired,
   }
 
   render() {

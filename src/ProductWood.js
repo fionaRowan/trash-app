@@ -6,7 +6,7 @@ class ProductWood extends Component {
     return (
         <Product
             name='Wood'
-            imageSrc='http://via.placeholder.com/600x250?text=Placeholder'
+            imageSrc='https://iconstore.co/wp-content/uploads/2016/07/birds-icons-featured.png'
           />
     )
   }

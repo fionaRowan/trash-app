@@ -6,7 +6,7 @@ class ProductLightbulbs extends Component {
     return (
         <Product
             name='Lightbulbs'
-            imageSrc='http://via.placeholder.com/600x250?text=Placeholder'
+            imageSrc='https://iconstore.co/wp-content/uploads/2017/12/business-icons-feat-new.png'
           />
     )
   }
