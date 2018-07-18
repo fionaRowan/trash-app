@@ -5,9 +5,9 @@ class ProductFood extends Component {
   render() {
     return (
         <Product
-            name='Food'
-            imageSrc='http://via.placeholder.com/600x250?text=Placeholder'
-          />
+           name='Food'
+           imageSrc='http://via.placeholder.com/600x250?text=Placeholder'
+         />
     )
   }
 }

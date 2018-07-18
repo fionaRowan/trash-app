@@ -7,6 +7,12 @@ import ProductMatrix from "./ProductMatrix";
 import APP_ID from "./config";
 import { Switch, Route, Link } from 'react-router-dom';
 
+// information pages to link to 
+import ProductFoodInformation from "./ProductFoodInformation";
+import ProductPlasticInformation from "./ProductPlasticInformation";
+import ProductElectronicsInformation from "./ProductElectronicsInformation";
+import ProductFabricInformation from "./ProductFabricInformation";
+
 let options = {};
 if (process.env.STITCH_URL) {
   options.baseUrl = process.env.STITCH_URL;
@@ -28,8 +34,16 @@ class App extends Component {
         </header>
         <div>
           <Switch>
-            <Route path='/map' render={()=> <SimpleMap client={stitchClient}/>}/>
-            <Route path='/guide' render={()=> <ProductMatrix client={stitchClient}/>}/>
+            <Route exact path='/map' render={()=> <SimpleMap client={stitchClient}/>}/>
+            <Route exact path='/guide' render={()=> <ProductMatrix client={stitchClient}/>}/>
+            <Route path='/map/compost' render={()=> <SimpleMap filters={["compost"]} client={stitchClient}/>}/>
+            <Route path='/map/electronics' render={()=> <SimpleMap filters={["electronics"]} client={stitchClient}/>}/>
+            <Route path='/map/recycling' render={()=> <SimpleMap filters={["recycling"]} client={stitchClient}/>}/>
+            <Route path='/guide/Food' render={()=> <ProductFoodInformation/>}/>
+            <Route path='/guide/Plastic' render={()=> <ProductPlasticInformation/>}/>
+            <Route path='/guide/Metal' render={()=> <ProductPlasticInformation/>}/>
+            <Route path='/guide/Electronics' render={()=> <ProductElectronicsInformation/>}/>
+            <Route path='/guide/Fabric' render={()=> <ProductFabricInformation/>}/>
           </Switch>
         </div>
       </div>

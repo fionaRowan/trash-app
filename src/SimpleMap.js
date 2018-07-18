@@ -17,7 +17,7 @@ class SimpleMap extends Component {
       lat: 40.7128,
       lng: -74.0060,
       filters: {
-        recycling: false, 
+        recycling: (this.props.filters !== undefined && this.props.filters.indexOf("recycling") > -1) ? true : false,
         compost: false,
         electronics: false,
       },
@@ -28,6 +28,16 @@ class SimpleMap extends Component {
     }
 
   }
+
+  // componentWillReceiveProps() {
+  //   const clearFilters = {
+  //       recycling: false,
+  //       compost: false,
+  //       electronics: false,
+  //     };
+  //   this.setState({filters:clearFilters});
+  //   this.getRecyclingMarkers();
+  // }
 
   onFilterOptionClick (item_type) {
     const oldFilters = this.state.filters;
@@ -42,10 +52,14 @@ class SimpleMap extends Component {
   getRecyclingMarkers() {
     const db = this.props.client.service('mongodb', 'mongodb-atlas').db('recycling');
     const pinsCollection = db.collection('pins');
-    const filters = [];
-    if(this.state.filters.recycling) {filters.push('recycling');}
-    if(this.state.filters.compost) {filters.push('compost');}
-    if(this.state.filters.electronics) {filters.push('electronics');}
+    let filters = [];
+    if (!!this.props.filters) {
+      filters = this.props.filters;
+    } else {
+      if(this.state.filters.recycling) {filters.push('recycling');}
+      if(this.state.filters.compost) {filters.push('compost');}
+      if(this.state.filters.electronics) {filters.push('electronics');}
+    }
     pinsCollection.find({'item_type': {'$in': filters}}).execute().then(
       docs => {
         const pins = [];
@@ -70,7 +84,9 @@ class SimpleMap extends Component {
     const position = [this.state.lat, this.state.lng]
     return (
       <div>
-      <FilterControl onFilterOptionClick={(...args) => this.onFilterOptionClick(...args)}/>
+      {this.props.filters === undefined &&
+        <FilterControl filters={this.state.filters} onFilterOptionClick={(...args) => this.onFilterOptionClick(...args)}/>
+      }
         <Map center={position} zoom={this.state.zoom}>
           <TileLayer
             attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"

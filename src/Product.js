@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Card, ImageHeader, CardFooter } from "react-simple-card";
+import { Link } from 'react-router-dom';
 const PropTypes = require('prop-types');
 
 class Product extends Component {
@@ -13,7 +14,7 @@ class Product extends Component {
         <div className="Product">
          <Card>
             <ImageHeader imageSrc={this.props.imageSrc}/>
-            <CardFooter>{this.props.name}</CardFooter>
+            <Link to={'/guide/'+this.props.name}><CardFooter>{this.props.name}</CardFooter></Link>
          </Card>
         </div>
     )
